@@ -1,5 +1,9 @@
 const express = require("express");
+//users route
 const users = require("./routes/users.js");
+//body-parser for reading the req body
+const bodyParser = require("body-parser");
+
 //For mLab
 const mongoose = require("mongoose");
 
@@ -14,14 +18,22 @@ mongoose
   .catch(err => console.log(err));
 
 //Connecting Local DB
-const db2 = require("./config/keys.js").localDBURI;
+/* const db2 = require("./config/keys.js").localDBURI;
 mongoClient
   .connect(db2, { useNewUrlParser: true })
   .then(console.log("Database local Connected"))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err)); */
 
 //Routing
 const app = express();
+
+//body-parser middleware
+
+//to support json encoded bodies
+app.use(bodyParser.json());
+//to support url encoded bodies
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.get("/", (req, res) => {
   res.send("Hello Sourav");
 });
