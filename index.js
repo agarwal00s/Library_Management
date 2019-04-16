@@ -3,6 +3,8 @@ const express = require("express");
 const users = require("./routes/users.js");
 //books route
 const books = require("./routes/books.js");
+//UserBooks route
+const userBooks = require("./routes/userBooks.js");
 //body-parser for reading the req body
 const bodyParser = require("body-parser");
 
@@ -41,6 +43,7 @@ app.get("/", (req, res) => {
 });
 app.use("/users", users);
 app.use("/books", books);
+app.use("/userBooks", userBooks);
 
 //Listening to port 5000
 app.listen(5000, () => {
