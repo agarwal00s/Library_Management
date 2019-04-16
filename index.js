@@ -1,6 +1,8 @@
 const express = require("express");
 //users route
 const users = require("./routes/users.js");
+//books route
+const books = require("./routes/books.js");
 //body-parser for reading the req body
 const bodyParser = require("body-parser");
 
@@ -38,6 +40,7 @@ app.get("/", (req, res) => {
   res.send("Hello Sourav");
 });
 app.use("/users", users);
+app.use("/books", books);
 
 //Listening to port 5000
 app.listen(5000, () => {
