@@ -1,10 +1,10 @@
 const express = require("express");
-//users route
+//students route
 const students = require("./routes/students.js");
 //books route
 const books = require("./routes/books.js");
-//UserBooks route
-const userBooks = require("./routes/studentBooks.js");
+//StudentBooks route
+const studentBooks = require("./routes/studentBooks.js");
 //body-parser for reading the req body
 const bodyParser = require("body-parser");
 
@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 //For Local MongoDb
-const mongoClient = require("mongodb").MongoClient;
+/* const mongoClient = require("mongodb").MongoClient; */
 
 //Connecting mLab DB
 const db1 = require("./config/keys.js").mongoURI;
@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 });
 app.use("/students", students);
 app.use("/books", books);
-app.use("/userBooks", userBooks);
+app.use("/studentBooks", studentBooks);
 
 //Listening to port 5000
 app.listen(5000, () => {
