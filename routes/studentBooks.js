@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const UserBook = require("../models/UserBooks.js");
+const StudentBook = require("../models/StudentBook.js");
 
 router.post("/issueBook", (req, res) => {
-  const newUserBooks = UserBook({
-    userId: req.body.userId,
+  const newStudentBooks = StudentBook({
+    studentId: req.body.studentId,
     bookId: req.body.bookId
   });
-  newUserBooks
+  newStudentBooks
     .save()
-    .then(userBook => res.json(userBook))
+    .then(studentBook => res.json(studentBook))
     .catch(err => console.log(err));
 });
 

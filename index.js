@@ -1,10 +1,10 @@
 const express = require("express");
 //users route
-const users = require("./routes/users.js");
+const students = require("./routes/students.js");
 //books route
 const books = require("./routes/books.js");
 //UserBooks route
-const userBooks = require("./routes/userBooks.js");
+const userBooks = require("./routes/studentBooks.js");
 //body-parser for reading the req body
 const bodyParser = require("body-parser");
 
@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   res.send("Hello Sourav");
 });
-app.use("/users", users);
+app.use("/students", students);
 app.use("/books", books);
 app.use("/userBooks", userBooks);
 
