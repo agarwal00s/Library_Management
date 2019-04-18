@@ -12,23 +12,45 @@ router.post("/register", (req, res) => {
     if (student) {
       res.status(400).json({ email: "Student with this Email already exists" });
     } else {
-      const password = bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(req.body.password, salt, (err, hash) => {
-          return hash;
-        });
-      });
       const newStudent = Student({
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
         gender: req.body.gender,
-        password: password
+        password: req.body.password
+      });
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(req.body.password, salt, (err, hash) => {
+          newStudent.password = hash;
+        });
       });
       newStudent
         .save()
         .then(student => res.json(student))
         .catch(err => console.log(err));
     }
+  });
+});
+
+router.post("/login", (req, res) => {
+  const loginStudent = {
+    email: req.body.email,
+    password: req.body.password
+  };
+  var a;
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+      loginStudent.password = hash;
+    });
+  });
+  Student.findOne({
+    $and: [
+      { email: { $eq: loginStudent.email } },
+      { password: { $eq: loginStudent.password } }
+    ]
+  }).then(student => {
+    if (student) res.status(200).json(student);
+    else res.status(400).json({ msg: "Invalid UserId/Password" });
   });
 });
 module.exports = router;
