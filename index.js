@@ -5,6 +5,7 @@ const students = require("./routes/students.js");
 const books = require("./routes/books.js");
 //StudentBooks route
 const studentBooks = require("./routes/studentBooks.js");
+const admins = require("./routes/admin.js");
 //body-parser for reading the req body
 const bodyParser = require("body-parser");
 
@@ -44,7 +45,7 @@ app.get("/", (req, res) => {
 app.use("/students", students);
 app.use("/books", books);
 app.use("/studentBooks", studentBooks);
-
+app.use("/admin", admins);
 //Listening to port 5000
 app.listen(5000, () => {
   console.log("Server Running");
