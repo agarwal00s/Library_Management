@@ -65,6 +65,16 @@ class Navbar extends Component {
                 Search Book
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/addBook">
+                Add Book
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/issueBook">
+                Issue Book
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

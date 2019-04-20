@@ -1,20 +1,33 @@
 import React, { Component } from "react";
 
-class SearchBook extends Component {
+class IssueBook extends Component {
   render() {
     return (
       <div>
         <form className="form-horizontal" action="">
           <div className="form-group">
-            <label className="control-label col-sm-2" for="isbn">
-              ISBN No.:
+            <label className="control-label col-sm-2" for="user_id">
+              User Id:
             </label>
             <div className="col-sm-10">
               <input
                 type="text"
                 className="form-control"
-                id="email"
-                placeholder="Enter ISBN No."
+                id="user_id"
+                placeholder="Enter User Id"
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="control-label col-sm-2" for="book_id">
+              Book Id:
+            </label>
+            <div className="col-sm-10">
+              <input
+                type="text"
+                className="form-control"
+                id="book_id"
+                placeholder="Enter Book Id"
               />
             </div>
           </div>
@@ -31,5 +44,4 @@ class SearchBook extends Component {
     );
   }
 }
-
-export default SearchBook;
+export default IssueBook;
