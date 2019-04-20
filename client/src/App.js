@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Navbar from "./components/layout/navbar.js";
+import Landing from "./components/layout/landing.js";
+import StudentLogin from "./components/auth/studentLogin";
+import StudentRegister from "./components/auth/studentRegister";
+import AdminLogin from "./components/auth/adminLogin";
+import SearchBook from "./components/layout/searchBook";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <Navbar />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/studentLogin" component={StudentLogin} />
+        <Route exact path="/studentRegister" component={StudentRegister} />
+        <Route exact path="/adminLogin" component={AdminLogin} />
+        <Route exact path="/searchBook" component={SearchBook} />
+      </Router>
     );
   }
 }
