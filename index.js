@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 
 //For mLab
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //For Local MongoDb
 /* const mongoClient = require("mongodb").MongoClient; */
@@ -31,7 +32,7 @@ mongoClient
 
 //Routing
 const app = express();
-
+app.use(cors());
 //body-parser middleware
 
 //to support json encoded bodies

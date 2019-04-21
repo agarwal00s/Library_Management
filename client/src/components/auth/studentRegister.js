@@ -17,38 +17,26 @@ class StudentRegister extends Component {
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     const newStudent = {
       name: this.state.name,
       email: this.state.email,
       phone: this.state.mobile,
       gender: this.state.gender,
-      password: this.state.password,
-      __v: 0
+      password: this.state.password
     };
+    console.log("Hello");
     axios
-      .post("/students/register", newStudent)
+      .post("http://localhost:5000/students/register", newStudent)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
-    /* fetch("http://loclahost:5000/students/register", {
-      method: "POST",
-      headers: {
-        Accept: "text/html, application/json",
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: JSON.stringify(newStudent)
-    }); */
-    /*
-    var request = new XMLHttpRequest();
-    request.open('POST', '/my/url', true);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(data);
-    */
+    console.log("World");
   }
   render() {
     return (
       <div>
-        <form className="form-horizontal" onSubmit={this.onSubmit}>
+        <form noValidate className="form-horizontal" onSubmit={this.onSubmit}>
           <div className="form-group">
             <label className="control-label col-sm-2">Name:</label>
             <div className="col-sm-10">
