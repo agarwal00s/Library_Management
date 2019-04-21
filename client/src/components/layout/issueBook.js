@@ -6,7 +6,7 @@ class IssueBook extends Component {
       <div>
         <form className="form-horizontal" action="">
           <div className="form-group">
-            <label className="control-label col-sm-2" for="user_id">
+            <label className="control-label col-sm-2">
               User Id:
             </label>
             <div className="col-sm-10">
@@ -19,7 +19,7 @@ class IssueBook extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="book_id">
+            <label className="control-label col-sm-2">
               Book Id:
             </label>
             <div className="col-sm-10">

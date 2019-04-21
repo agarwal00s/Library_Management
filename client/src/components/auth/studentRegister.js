@@ -28,7 +28,7 @@ class StudentRegister extends Component {
     };
     console.log("Hello");
     axios
-      .post("http://localhost:5000/students/register", newStudent)
+      .post("students/register", newStudent)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     console.log("World");

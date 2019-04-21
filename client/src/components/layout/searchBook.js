@@ -6,7 +6,7 @@ class SearchBook extends Component {
       <div>
         <form className="form-horizontal" action="">
           <div className="form-group">
-            <label className="control-label col-sm-2" for="isbn">
+            <label className="control-label col-sm-2">
               ISBN No.:
             </label>
             <div className="col-sm-10">

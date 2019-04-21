@@ -6,9 +6,7 @@ class AddBook extends Component {
       <div>
         <form className="form-horizontal" action="">
           <div className="form-group">
-            <label className="control-label col-sm-2" for="isbn">
-              ISBN No.:
-            </label>
+            <label className="control-label col-sm-2">ISBN No.:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -19,9 +17,7 @@ class AddBook extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="title">
-              Title:
-            </label>
+            <label className="control-label col-sm-2">Title:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -32,9 +28,7 @@ class AddBook extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="author">
-              Author:
-            </label>
+            <label className="control-label col-sm-2">Author:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -45,9 +39,7 @@ class AddBook extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="genre">
-              Genre:
-            </label>
+            <label className="control-label col-sm-2">Genre:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -58,9 +50,7 @@ class AddBook extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="copies">
-              Copies:
-            </label>
+            <label className="control-label col-sm-2">Copies:</label>
             <div className="col-sm-10">
               <input
                 type="number"
