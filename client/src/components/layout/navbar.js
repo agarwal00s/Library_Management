@@ -24,7 +24,7 @@ class Navbar extends Component {
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
-                href="#"
+                to="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -45,7 +45,7 @@ class Navbar extends Component {
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
-                href="#"
+                to="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"

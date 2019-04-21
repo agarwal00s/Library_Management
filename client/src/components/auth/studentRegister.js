@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { axios } from "axios";
+import axios from "axios";
 class StudentRegister extends Component {
   constructor() {
     super();
@@ -23,21 +23,34 @@ class StudentRegister extends Component {
       email: this.state.email,
       phone: this.state.mobile,
       gender: this.state.gender,
-      password: this.state.password
+      password: this.state.password,
+      __v: 0
     };
     axios
       .post("/students/register", newStudent)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
+    /* fetch("http://loclahost:5000/students/register", {
+      method: "POST",
+      headers: {
+        Accept: "text/html, application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: JSON.stringify(newStudent)
+    }); */
+    /*
+    var request = new XMLHttpRequest();
+    request.open('POST', '/my/url', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(data);
+    */
   }
   render() {
     return (
       <div>
         <form className="form-horizontal" onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="name">
-              Name:
-            </label>
+            <label className="control-label col-sm-2">Name:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -50,9 +63,7 @@ class StudentRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="email">
-              Email:
-            </label>
+            <label className="control-label col-sm-2">Email:</label>
             <div className="col-sm-10">
               <input
                 type="email"
@@ -65,9 +76,7 @@ class StudentRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="mobile">
-              Mobile No.:
-            </label>
+            <label className="control-label col-sm-2">Mobile No.:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -80,9 +89,7 @@ class StudentRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="gender">
-              Gender:
-            </label>
+            <label className="control-label col-sm-2">Gender:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -95,9 +102,7 @@ class StudentRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label className="control-label col-sm-2" for="password">
-              Password:
-            </label>
+            <label className="control-label col-sm-2">Password:</label>
             <div className="col-sm-10">
               <input
                 type="password"

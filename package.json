@@ -4,8 +4,8 @@
   "description": "Library Management System",
   "main": "index.js",
   "scripts": {
-    "client-install": "npm i --prefix client",
-    "client": "npm start --prefix client",
+    "client-install": "npm i --prefix frontend",
+    "client": "npm start --prefix frontend",
     "start": "node index.js",
     "server": "nodemon index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
