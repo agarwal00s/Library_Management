@@ -13,6 +13,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const path = require("path");
+
 //For Local MongoDb
 /* const mongoClient = require("mongodb").MongoClient; */
 
@@ -47,7 +49,18 @@ app.use("/students", students);
 app.use("/books", books);
 app.use("/studentBooks", studentBooks);
 app.use("/admin", admins);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 //Listening to port 5000
-app.listen(5000, () => {
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
   console.log("Server Running");
 });
