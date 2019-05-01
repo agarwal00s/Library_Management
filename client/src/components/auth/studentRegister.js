@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-/* import axios from "axios"; */
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions.js";
 import PropTypes from "prop-types";
@@ -30,11 +30,7 @@ class StudentRegister extends Component {
       gender: this.state.gender,
       password: this.state.password
     };
-    this.props.registerUser(newStudent);
-    /* axios
-      .post("students/register", newStudent)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err)); */
+    this.props.registerUser(newStudent, this.props.history);
   }
   render() {
     return (
@@ -124,11 +120,11 @@ StudentRegister.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
-const mapStateTpProps = state => ({
+const mapStateToProps = state => ({
   auth: state.auth
 });
 
 export default connect(
-  mapStateTpProps,
+  mapStateToProps,
   { registerUser }
-)(StudentRegister);
+)(withRouter(StudentRegister));
