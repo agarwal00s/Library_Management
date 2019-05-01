@@ -42,9 +42,6 @@ app.use(bodyParser.json());
 //to support url encoded bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.send("Hello Sourav");
-});
 app.use("/students", students);
 app.use("/books", books);
 app.use("/studentBooks", studentBooks);
