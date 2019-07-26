@@ -1,7 +1,6 @@
-import { TEST_DISPATCH } from "../actions/types.js";
+import { TEST_DISPATCH, LOGOUT_DISPATCH } from "../actions/types.js";
 
 const initialState = {
-  isAuthenticatesUser: false,
   user: {}
 };
 export default function(state = initialState, action) {
@@ -11,6 +10,8 @@ export default function(state = initialState, action) {
         ...state,
         user: action.payload
       };
+    case LOGOUT_DISPATCH:
+      return action.payload;
     default:
       return state;
   }

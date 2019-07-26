@@ -6,9 +6,7 @@ class SearchBook extends Component {
       <div>
         <form className="form-horizontal" action="">
           <div className="form-group">
-            <label className="control-label col-sm-2">
-              ISBN No.:
-            </label>
+            <label className="control-label col-sm-2">ISBN No.:</label>
             <div className="col-sm-10">
               <input
                 type="text"
@@ -22,7 +20,7 @@ class SearchBook extends Component {
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-10">
               <button type="submit" className="btn btn-primary">
-                Submit
+                Search Book
               </button>
             </div>
           </div>

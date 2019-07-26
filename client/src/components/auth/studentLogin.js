@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions.js";
+import PropTypes from "prop-types";
 class StudentLogin extends Component {
   constructor() {
     super();
@@ -19,10 +21,7 @@ class StudentLogin extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    axios
-      .post("students/login", user)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
+    this.props.loginUser(user, this.props.history);
   }
   render() {
     return (
@@ -58,7 +57,7 @@ class StudentLogin extends Component {
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-10">
               <button type="submit" className="btn btn-primary">
-                Submit
+                Login
               </button>
             </div>
           </div>
@@ -68,4 +67,11 @@ class StudentLogin extends Component {
   }
 }
 
-export default StudentLogin;
+StudentLogin.propTypes = {
+  loginUser: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { loginUser }
+)(StudentLogin);

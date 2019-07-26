@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logOutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 class Navbar extends Component {
   constructor(props) {
@@ -8,6 +9,9 @@ class Navbar extends Component {
     this.state = {
       user: null
     };
+  }
+  logout() {
+    this.props.logOutUser();
   }
   render() {
     if (this.props.user != null) {
@@ -42,6 +46,15 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/issueBook">
                   Issue Book
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/studentLogin"
+                  onClick={this.logout}
+                >
+                  Logout
                 </Link>
               </li>
             </ul>
@@ -86,9 +99,13 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.string,
+  logOutUser: PropTypes.func.isRequired
 };
 const mapStateToProps = state => {
-  if (state.auth && state.auth.user) return { user: state.auth.user.name };
+  if (state.auth && state.auth.user) return { user: state.auth.user.email };
 };
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  mapStateToProps,
+  logOutUser
+)(Navbar);
