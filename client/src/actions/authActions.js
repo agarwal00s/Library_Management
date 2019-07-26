@@ -3,7 +3,7 @@ import axios from "axios";
 export const registerUser = (userData, history) => {
   axios
     .post("students/register", userData)
-    .then(res => history.push("/searchBook"))
+    .then(res => history.push("/"))
     .catch(err => console.log(err));
   return {
     type: TEST_DISPATCH,
